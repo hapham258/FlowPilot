@@ -1,3 +1,20 @@
+Setup:
+```
+git submodule update --init --recursive
+conda create -n flowpilot_all python=3.10 -y
+conda activate flowpilot_all
+pip install -e .
+pip install onnxruntime-gpu
+
+pip install uv
+cd visnavkit
+uv sync --extra export
+```
+Train:
+```
+uv run visnavkit-train experiment=flowpilot_dst_clips1k
+```
+
 # FlowPilot
 
 **From Imitation to Alignment: Human-Preference Flow Policies for Long-Horizon Sidewalk Navigation**
